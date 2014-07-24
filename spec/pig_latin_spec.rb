@@ -12,4 +12,16 @@ require('pig_latin')
     it('if a vowel follows a "q", move all letters before and move to the end and add "ay"') do
       pig_latin('squeal').should(eq("ealsquay"))
     end
+
+    it('processes a y in the first character like a consonant') do
+      pig_latin('yellow').should(eq("ellowyay"))
+    end
+
+    it('processes a y as a consonant if is before a vowel') do
+      pig_latin('cygnet').should(eq("ygnetcay"))
+    end
+
+    it('processes a y as a vowel if is before a consonant') do
+      pig_latin('style').should(eq("ylestay"))
+    end
   end
